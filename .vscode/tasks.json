@@ -7,7 +7,7 @@
             "taskName": "test",
             "type": "process",
             "command": "python",
-            "args": ["${file}"],
+            "args": ["${file}","data.txt", "dict.dat"],
             "group": "build",
             "presentation": {
                 // Reveal the output only if unrecognized errors occur.

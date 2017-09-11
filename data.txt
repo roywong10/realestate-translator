@@ -1,0 +1,202 @@
+Potential	潛質優厚	潛力優厚	巨大潛力																
+Modern	現代	現代生活																	
+New	全新	全新美宅	崭新						Brand New	Near New									
+Spacious	寬敞																		
+Luxury	奢華	豪华	奢華定義																
+prime	優越位置	上佳地段	完美地段	高尚地段	卓越地段	完美佳位	首選佳位		prime location	prime space	prime position								
+contemporary	現代時尚	典雅時尚	現代精美	現代舒適	時尚現代														
+Brick	砖																		
+Perfect	完美之選	位于完美	完美首選																
+Renovated	精美翻新	翻修一新	优质翻新	經典翻新															
+GREAT	絕佳	优越	卓越																
+																			
+Private	安静私密	私密安静							private sale		私人								
+convenient	便利位置	便捷位置	非常便捷	位置便利	位置便捷														
+Stunning	令人惊叹	令人讚歎																	
+SUPERB									blank										
+stylish	时尚精致	精巧時尚																	
+Quality	優質																		
+Convenience	便利位置	便捷位置	非常便捷	位置便利	位置便捷														
+First	首次								first time offer		首次出售		first home	first buyer	首次置业	首置買家	首置佳選		
+luxurious	奢華	豪华	奢華定義																
+Large	大型																		
+Single									Single Level	Single-level	單層								
+classic	经典	经典融合																	
+Sanctuary	天堂																		
+plus																			
+One																			
+charm	典雅魅力	魅力迷人	迷人魅力																
+IMMACULATE	完美之選	位于完美	完美首選																
+TOP									Top floor	Top-floor	顶层		Top quality		優質				
+quiet	安静	宁静																	
+double	双																		
+two																			
+North	北																		
+CORNER	街角	轉角																	
+HEART	中心地带																		
+FULL									full brick	full-brick	全砖								
+character	经典独特	经典特色	特色魅力	独具魅力															
+Close																			
+ENTERTAINING	绝佳宴客	宴客娛樂																	
+CENTRAL	中心地带																		
+Peaceful	安静怡人	宁静怡人	安宁静谧																
+Ideal	理想之选																		
+BEAUTIFUL	精美																		
+Premium	頂級	絕佳																	
+elegance	舒適典雅	经典优雅																	
+FACING	面向																		
+O/A																			
+FANTASTIC	夢幻機遇	绝佳																	
+Blue																			
+Grand	宏伟																		
+Designer	頂級設計																		
+Leafy	绿荫区域																		
+UNDER																			
+JUST																			
+Tranquil	安宁静谧	宁静怡人																	
+ELEGANT	优雅经典	高端典雅	精美典雅	舒適典雅															
+Ultimate	顶级絕佳	顶级完美	絕佳卓越	傳世佳作	终极奢华	终极首选	终极享受												
+Best																			
+Rare	稀有機遇	稀有魅力	稀缺機遇	稀缺魅力	罕见機遇	机遇难逢	稀缺难逢												
+Oasis																			
+WATERFRONT																			
+SOPHISTICATED	舒適典雅	优雅经典	高端典雅	精美典雅	精致典雅	精致高端													
+Sought																			
+near																			
+SPECTACULAR	壮观																		
+Prized																			
+prestige	名望																		
+Boutique	绝对精品																		
+Prestigious	備受尊崇	名望尊崇	名望佳作																
+appeal	精美典雅																		
+BRILLIANT																			
+East																			
+ULTRA																			
+huge																			
+premier									premier location	premier position			名望位置	優越位置					
+impressive																			
+ready																			
+meets																			
+Class																			
+dream																			
+RESORT																			
+Designed																			
+EXCLUSIVE	独家																		
+exquisite																			
+High																			
+BEAUTY																			
+Elevated																			
+Expressions																			
+Low																			
+MASSIVE																			
+Approved																			
+Easy																			
+big																			
+start																			
+MUST																			
+Affordable	價格合理	经济实惠	超值实惠																
+flawless	完美之選	位于完美	完美首選																
+Ribbon																			
+presented																			
+Beautifully																			
+TIMELESS	歷久彌新	經典魅力																	
+comfort																			
+Exceptional																			
+Above																			
+Period	时代经典	時代魅力	 時代優雅																
+Over																			
+UNIQUE																			
+Future																			
+Bright																			
+Invest																			
+SENSATIONAL																			
+outstanding																			
+popular	热门之选	极受欢迎																	
+Water																			
+DUAL																			
+Executive																			
+will																			
+exciting																			
+move																			
+perfection																			
+charming																			
+Original	原裝魅力	原裝特色																	
+|																			
+own																			
+Comfortable																			
+Frontage																			
+MASTERPIECE	現代傑作																		
+EDGE																			
+When																			
+Magnificent	壮丽宏伟																		
+Highly																			
+Semi																			
+AWAITS																			
+side																			
+MINUTES																			
+FRIENDLY																			
+Enviable																			
+TIME																			
+Renovate	装修之选																		
+One Bedroom	一房																		
+1 Bedroom	一房																		
+1 Bed	一房																		
+two bedroom	两房																		
+2 Bedroom	两房																		
+2 Bed	两房																		
+three Bedroom	三房																		
+3 Bedroom	三房																		
+3 Bed	三房																		
+Four Bedroom	四房																		
+4 Bedroom	四房																		
+4 Bed	四房																		
+Apartment	公寓																		
+Townhouse	镇屋																		
+Townhouses	多镇屋																		
+Studio	工作室																		
+Studios	多工作室																		
+Duplex	duplex																		
+flat	套间																		
+suite	套间																		
+villa	别墅																		
+Ground floor	一楼																		
+top floor	顶楼	顶层																	
+Top-floor	顶楼	顶层																	
+mid floor	中层																		
+Mid-Floor	中层																		
+second floor	二楼																		
+second-floor	二楼																		
+third floor	三楼																		
+third-floor	三楼																		
+fourth floor	四楼																		
+fourth-floor	四楼																		
+fifth floor	五楼																		
+fifth-floor	五楼																		
+first time offer	首次出售																		
+Handy Location	便利位置	便捷位置	非常便捷	位置便利	位置便捷														
+Handy Position	便利位置	便捷位置	非常便捷	位置便利	位置便捷														
+convenient location	便利位置	便捷位置	非常便捷	位置便利	位置便捷														
+convenient position	便利位置	便捷位置	非常便捷	位置便利	位置便捷														
+House	美居																		
+family home	家庭美居																		
+light filled	采光																		
+light-filled	采光																		
+bright	采光																		
+perfect location	優越位置	上佳地段	完美地段	高尚地段	卓越地段	完美佳位	首選佳位												
+prime location	優越位置	上佳地段	完美地段	高尚地段	卓越地段	完美佳位	首選佳位												
+full brick	全砖																		
+full-brick	全砖																		
+Single Level	單層																		
+Single-level	單層																		
+family entertainer	家庭娱乐室																		
+executive living	時尚生活																		
+executive home	時尚生活																		
+close to station	近车站																		
+proximity to station	近车站																		
+walkable to station	近车站																		
+walk to station	近车站																		
+fully furnished	家具齐全																		
+fuly-furnished	家具齐全																		
+granny flat	祖母房																		
+deposit taken	blank																		
+brand new	全新																		
