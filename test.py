@@ -1,5 +1,3 @@
-import pickle 
-import re
-
-
-print ("hello")
+import nltk  
+nltk.download()
+print(nltk.word_tokenize("pickles installed"))  

@@ -3,6 +3,7 @@ import codecs
 import re
 import pickle
 import os
+from funcs import *
 
 pathToData = sys.argv[1] 
 pathToDict = sys.argv[2]
@@ -18,24 +19,25 @@ else:
     dict = {}
 
 
-print(dict)
-print(len(dict))
-
-
 file = open(pathToData, encoding="utf8")
 line = file.readline()
 
 while line:
-    line = file.readline()
+    
     lineData = line.split("\t")
-    if lineData[0] not in dict:
-        dict[lineData[0]] = []
+    attribute = normalWord(lineData[0])
+    if attribute not in dict:   
+        dict[attribute] = []
     for i in range(1,len(lineData)):       
-        if lineData[i] and lineData[i] != '\n' and lineData[i] not in dict[lineData[0]]:
-            dict[lineData[0]].append(lineData[i])
+        if lineData[i] and lineData[i] != '\n' and lineData[i] not in dict[attribute]:
+            dict[attribute].append(lineData[i])
+    line = file.readline()
 file.close()
 
 with open(pathToDict, 'wb') as f2:
     pickle.dump(dict, f2)
 f2.close()
+
+print(dict)
+print(len(dict))
 

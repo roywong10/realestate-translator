@@ -200,3 +200,4 @@ fuly-furnished	家具齐全
 granny flat	祖母房																		
 deposit taken	blank																		
 brand new	全新																		
+bathroom    卫生间
