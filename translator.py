@@ -3,6 +3,7 @@ import re
 import sys
 import os
 import funcs
+import baidutrans
 
 pathToDict = sys.argv[1]
 pathToEnglish = sys.argv[2]
@@ -47,7 +48,7 @@ for w in script:
         if translateDict[w.upper()]:
             translation.append(translateDict[w.upper()][0])
             continue
-    translation.append(w)
+    translation.append(baidutrans.en_to_zh(w))
 
 
 
