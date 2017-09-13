@@ -4,6 +4,7 @@ import re
 import pickle
 import os
 from funcs import *
+import nltk
 
 pathToData = sys.argv[1] 
 pathToDict = sys.argv[2]
@@ -24,13 +25,26 @@ line = file.readline()
 
 while line:
     
-    lineData = line.split("\t")
-    attribute = normalWord(lineData[0])
-    if attribute not in dict:   
-        dict[attribute] = []
-    for i in range(1,len(lineData)):       
-        if lineData[i] and lineData[i] != '\n' and lineData[i] not in dict[attribute]:
-            dict[attribute].append(lineData[i])
+    lineData = nltk.word_tokenize(line)
+    if not lineData:
+        continue
+    i = 1
+    attribute = lineData[0]
+    while i < len(lineData):
+        if isEnglish(lineData[i]):
+            attribute+=' '+lineData[i]
+        else:
+            break
+        i += 1
+
+    attribute = normalWord(attribute)
+
+    if attribute not in dict:
+        dict[attribute] = lineData[i:]
+    else:
+        for w in lineData[i:]:
+            if w not in dict[attribute]:
+                dict[attribute].append(w)
     line = file.readline()
 file.close()
 

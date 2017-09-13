@@ -9,3 +9,8 @@ def normalWord(word):
         r = r.lower()
     return r
 
+def isEnglish(src):
+    for d in src:
+        if ord(d)>122:
+            return False
+    return True

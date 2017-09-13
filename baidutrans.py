@@ -11,6 +11,22 @@ def md5(str):#生成md5
     m = hashlib.md5()
     m.update(str.encode(encoding= 'utf-8'))
     return m.hexdigest()
+def auto_to_zh(src):#英译中
+    ApiKey = "20170912000082297"
+    pwd = "RKsWYtiRhv67PVccG62G"
+    salt = "1435660288"
+    all = ApiKey + src + salt + pwd
+    sign = md5(all)
+    url = "http://api.fanyi.baidu.com/api/trans/vip/translate?q="\
+          + src + "&from=auto&to=zh&appid=" + ApiKey + \
+          "&salt=" + salt + "&sign=" + sign
+    try:
+        # req = urllib.request.Request(url)
+        res = urllib.request.urlopen(url)
+        data = json.loads(res.read().decode('utf-8'))
+        return data
+    except:
+        return "出错了"
 
 def en_to_zh(src):#英译中
     ApiKey = "20170912000082297"
@@ -19,13 +35,13 @@ def en_to_zh(src):#英译中
     all = ApiKey + src + salt + pwd
     sign = md5(all)
     url = "http://api.fanyi.baidu.com/api/trans/vip/translate?q="\
-          + src + "&from=en&to=zh&appid=" + ApiKey + \
+          + urllib.parse.quote(src) + "&from=en&to=zh&appid=" + ApiKey + \
           "&salt=" + salt + "&sign=" + sign
     try:
         # req = urllib.request.Request(url)
         res = urllib.request.urlopen(url)
         data = json.loads(res.read().decode('utf-8'))
-        return data['trans_result'][0]['dst']
+        return data
     except:
         return "出错了"
 

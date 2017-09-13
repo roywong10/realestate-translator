@@ -1,4 +1,5 @@
-Potential	潛質優厚	潛力優厚	巨大潛力																
+test test2 test3 测试 测试
+Potential	潛質優厚	潛力優厚	巨大潛力
 Modern	現代	現代生活																	
 New	全新	全新美宅	崭新						Brand New	Near New									
 Spacious	寬敞																		
@@ -8,39 +9,47 @@ contemporary	現代時尚	典雅時尚	現代精美	現代舒適	時尚現代
 Brick	砖																		
 Perfect	完美之選	位于完美	完美首選																
 Renovated	精美翻新	翻修一新	优质翻新	經典翻新															
-GREAT	絕佳	优越	卓越																
-																			
-Private	安静私密	私密安静							private sale		私人								
+GREAT	絕佳	优越	卓越
+Private	安静私密	私密安静
+private sale		私人
 convenient	便利位置	便捷位置	非常便捷	位置便利	位置便捷														
 Stunning	令人惊叹	令人讚歎																	
-SUPERB									blank										
+SUPERB
 stylish	时尚精致	精巧時尚																	
 Quality	優質																		
-Convenience	便利位置	便捷位置	非常便捷	位置便利	位置便捷														
-First	首次								first time offer		首次出售		first home	first buyer	首次置业	首置買家	首置佳選		
+Convenience 	便利位置	便捷位置	非常便捷	位置便利	位置便捷
+First	首次
+first time offer		首次出售
+first home	first buyer 	首次置业	首置買家	首置佳選
 luxurious	奢華	豪华	奢華定義																
 Large	大型																		
-Single									Single Level	Single-level	單層								
+Single
+Single Level	Single-level	單層
 classic	经典	经典融合																	
 Sanctuary	天堂																		
 plus																			
 One																			
 charm	典雅魅力	魅力迷人	迷人魅力																
 IMMACULATE	完美之選	位于完美	完美首選																
-TOP									Top floor	Top-floor	顶层		Top quality		優質				
-quiet	安静	宁静																	
+TOP
+Top floor	顶层
+Top-floor	顶层
+Top quality		優質
+quiet	    安静	宁静
 double	双																		
 two																			
 North	北																		
 CORNER	街角	轉角																	
 HEART	中心地带																		
-FULL									full brick	full-brick	全砖								
+FULL
+full brick	全砖
+full-brick	全砖
 character	经典独特	经典特色	特色魅力	独具魅力															
 Close																			
-ENTERTAINING	绝佳宴客	宴客娛樂																	
+ENTERTAINING  	绝佳宴客	宴客娛樂
 CENTRAL	中心地带																		
 Peaceful	安静怡人	宁静怡人	安宁静谧																
-Ideal	理想之选																		
+Ideal	 理想之选
 BEAUTIFUL	精美																		
 Premium	頂級	絕佳																	
 elegance	舒適典雅	经典优雅																	
@@ -69,11 +78,12 @@ prestige	名望
 Boutique	绝对精品																		
 Prestigious	備受尊崇	名望尊崇	名望佳作																
 appeal	精美典雅																		
-BRILLIANT																			
-East																			
+BRILLIANT
 ULTRA																			
-huge																			
-premier									premier location	premier position			名望位置	優越位置					
+huge								巨大的
+premier
+premier location	名望位置
+premier position		名望位置	優越位置
 impressive																			
 ready																			
 meets																			
@@ -95,7 +105,7 @@ big
 start																			
 MUST																			
 Affordable	價格合理	经济实惠	超值实惠																
-flawless	完美之選	位于完美	完美首選																
+flawless	 完美之選	位于完美	完美首選
 Ribbon																			
 presented																			
 Beautifully																			
@@ -111,7 +121,7 @@ Bright
 Invest																			
 SENSATIONAL																			
 outstanding																			
-popular	热门之选	极受欢迎																	
+popular	 热门之选	极受欢迎
 Water																			
 DUAL																			
 Executive																			
@@ -120,8 +130,7 @@ exciting
 move																			
 perfection																			
 charming																			
-Original	原裝魅力	原裝特色																	
-|																			
+Original	原裝魅力	原裝特色
 own																			
 Comfortable																			
 Frontage																			
@@ -167,7 +176,7 @@ Mid-Floor	中层
 second floor	二楼																		
 second-floor	二楼																		
 third floor	三楼																		
-third-floor	三楼																		
+third-floor	 三楼
 fourth floor	四楼																		
 fourth-floor	四楼																		
 fifth floor	五楼																		
@@ -188,8 +197,8 @@ full brick	全砖
 full-brick	全砖																		
 Single Level	單層																		
 Single-level	單層																		
-family entertainer	家庭娱乐室																		
-executive living	時尚生活																		
+family entertainer	 家庭娱乐室
+executive living 	時尚生活
 executive home	時尚生活																		
 close to station	近车站																		
 proximity to station	近车站																		
@@ -198,6 +207,8 @@ walk to station	近车站
 fully furnished	家具齐全																		
 fuly-furnished	家具齐全																		
 granny flat	祖母房																		
-deposit taken	blank																		
+deposit taken
 brand new	全新																		
 bathroom    卫生间
+and 和
+set 建立

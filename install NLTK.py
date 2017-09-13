@@ -4,19 +4,20 @@ import sys
 PathToEngText = sys.argv[1]  
 # nltk.download()
 
-file = open(PathToEngText, 'r')
-lines = file.readlines()
-
-words = []
-tags = []
-for sen in lines:
-    t = nltk.word_tokenize(sen)
-    r = nltk.pos_tag(t)
-    tags.append(r)
-    print('sen: ', sen, end='\n#################\n')
-    print('words: ', t,end='\n##################\n')
-    print('tags: ', r,end='\n################ner\n')
-    print('ners: ', nltk.ne_chunk(r),end='\n\n\n\n\n')
+# file = open(PathToEngText, 'r')
+# lines = file.readlines()
+#
+# words = []
+# tags = []
+# for sen in lines:
+#     t = nltk.word_tokenize(sen)
+#     r = nltk.pos_tag(t)
+#     tags.append(r)
+#     ners = nltk.ne_chunk(r)
+#     print('sen: ', sen, end='\n#################\n')
+#     print('words: ', t,end='\n##################\n')
+#     print('tags: ', r,end='\n################ner\n')
+#     print('ners: ', ners,end='\n\n\n\n\n')
 
 # print("words: ",words)
 
