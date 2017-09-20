@@ -43,7 +43,7 @@ def en_to_zh(src):#英译中
         data = json.loads(res.read().decode('utf-8'))
         return data
     except:
-        return "出错了"
+        return False
 
 def zh_to_en(src):#中译英
     ApiKey = "20170912000082297"
@@ -60,7 +60,7 @@ def zh_to_en(src):#中译英
         res = json.load(con)
         return res['trans_result'][0]['dst']
     except:
-        return "出错了"
+        return False
 
 # def main():
 #     choice = input("English to Chinese:Enter 1 \n"
