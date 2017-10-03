@@ -19,6 +19,8 @@ if os.path.exists(pathToDict):
 else:
     dict = {}
 
+dictLen = len(dict)
+
 
 file = open(pathToData, encoding="utf8")
 line = file.readline()
@@ -53,5 +55,5 @@ with open(pathToDict, 'wb') as f2:
 f2.close()
 
 print(dict)
-print(len(dict))
+print( "新增{:}个字典条目, 共{:}条".format(len(dict) - dictLen, len(dict)))
 

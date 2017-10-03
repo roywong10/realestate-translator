@@ -6,6 +6,8 @@ import funcs
 import baidutrans
 import nltk
 import json
+from collections import  OrderedDict
+from operator import itemgetter
 
 def build_paragraphs(lines, paragraphs = []):
     for line in lines:
@@ -13,8 +15,12 @@ def build_paragraphs(lines, paragraphs = []):
         paragraphs.append([])
         for sentence in paragraph:
             words = nltk.word_tokenize(sentence)
+            if not words:
+                continue
             # words[0] = words[0].lower()
             tags = nltk.pos_tag(words)
+            if not tags:
+                continue
             paragraphs[-1].append(tags)
     return paragraphs
 
@@ -94,27 +100,35 @@ def extract_phrase(paragraphs):
     adjs = ['JJ', 'JJR', 'JJS']
     nouns = ['NN', 'NNS', 'NNP', 'NNPS']
     advs = ['RB', 'RBR', 'RBS']
-    JJ= []
-    RB = []
-    NN = []
-    VBN = []
+    JJ= {}
+    NN = {}
     for p in paragraphs:
         for s in p:
             for i in range(len(s)-1):
                 if s[i][-1] in adjs:
                     if s[i+1][-1] in nouns:
-                        JJ.append([s[i][-1]+' '+s[i+1][-1], s[i][0], s[i+1][0]])
-                    continue
+                        key = s[i][0]+" "+s[i+1][0]
+
+                        if key in JJ:
+                            JJ[key]+=1
+                        else:
+                            JJ[key] = 1
                 if s[i][-1] in nouns:
-                    NN.append([s[i][-1]+' '+s[i+1][-1], s[i][0], s[i+1][0]])
-                    continue
-                if s[i][-1] in advs:
-                    RB.append([s[i][-1]+' '+s[i+1][-1], s[i][0], s[i+1][0]])
-                    continue
-                if s[i][-1] == 'VBN"':
-                    VBN.append([s[i][-1]+' '+s[i+1][-1], s[i][0], s[i+1][0]])
-                    continue
-    return {'JJ':JJ, 'RB':RB, 'NN':NN, 'VBN':VBN}
+                    if s[i+1][-1] in nouns:
+                        key = s[i][0]+" "+s[i+1][0]
+
+                        if key in NN:
+                            NN[key]+=1
+                        else:
+                            NN[key] = 1
+    return JJ, NN
+
+def write_extract(dict,dictName):
+    sortedDict = sorted(dict.items(), key=lambda item: item[1], reverse=True)
+    with open(os.path.join("extracts", dictName+"_extract.txt"), "w", encoding='utf-8') as f:
+        for i in sortedDict:
+            f.write(str(i[0]) + "\t " + str(i[1]) + "\n")
+    f.close()
 
 if __name__ == '__main__':
 
@@ -124,6 +138,7 @@ if __name__ == '__main__':
     # pathToEnglish = sys.argv[2]
     pathToEnglish = 'eng2.txt'
     delete_tags = ['CC', 'DT', 'IN', 'TO', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT']
+    delete_tags = ['CC', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT']
     unchange_tags = ['NNP', 'NNPS']
     ###############
 
@@ -145,10 +160,10 @@ if __name__ == '__main__':
     for ss in translate(paragraphs, delete_tags, unchange_tags, phraseNum):
         print(ss)
 
-    # extract = extract_phrase(paragraphs)
-    # with open("extract.json","w",encoding='utf-8') as f:
-    #     for i in extract['JJ']:
-    #         f.write(str(i[0])+": "+str(i[1])+" "+str(i[2])+"\n")
-        # json.dump(extract, f, sort_keys=True, indent=4)
-    # print(baidutrans.en_to_zh(script))
+    # JJ, NN = extract_phrase(paragraphs)
+    # sortedDict = sorted(JJ.items(), key=lambda item:item[1], reverse=True)
+    # write_extract(JJ, 'JJ')
+    # write_extract(NN, 'NN')
+
+
     # translate process

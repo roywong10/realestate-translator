@@ -1,0 +1,82 @@
+import sys
+import requests
+import re
+from bs4 import BeautifulSoup
+from selenium import webdriver
+import json
+
+def write_to_json(content, path):
+    with open(path, 'a', encoding='utf-8') as f:
+        f.write(content)
+
+def get_one_page(url):
+    resppnse = requests.get(url)
+    if resppnse.status_code == 200:
+        return resppnse.text
+    return False
+
+def extractFromBroswer(url):
+    broswer = webdriver.Chrome()
+    try:
+        broswer.get(url)
+        result =  broswer.page_source
+    finally:
+        broswer.close()
+        return result
+
+
+def extractScript(start, end):
+
+    url = 'http://www.ozhome.com.au'
+    lang = '/en-au'
+    afterFix = '/buy'
+    pageNumPrefix = '?pageNum='
+
+    allurls = []
+    Num = start
+    while Num<=end:
+        html = get_one_page(url+lang+afterFix+pageNumPrefix+str(Num))
+        # print(html)
+        if not html:
+            break
+        pattern = '"topHeadingbox".*?<a href="(.*?)"'
+        results = re.findall(pattern, html, re.S)
+        print(Num)
+        Num += 1
+
+        for r in results:
+            allurls.append(r)
+            html2 = get_one_page(url+r)
+            if not html2:
+                continue
+            soup = BeautifulSoup(html2, 'lxml')
+            script = soup.find(class_ = 'housearticle')
+            if not script:
+                continue
+            yield {
+                'url': r,
+                'script': script.get_text()
+            }
+
+
+
+    # print(allurls)
+    # for propertyUrl in allurls:
+    #     html = get_one_page(url+propertyUrl)
+    #     # html = extractFromBroswer(url+propertyUrl)
+    #     if not html:
+    #         continue
+    #     soup = BeautifulSoup(html, 'lxml')
+    #     # script = re.search(pattern, str(soup.find_all(class_ = 'housearticle')),re.S)
+    #     script = soup.find(class_= 'housearticle')
+
+
+
+if __name__ == '__main__':
+    scripts = ""
+    for i in extractScript(101,300):
+        pattern = '^[\s]*(.*)'
+        p = re.match(pattern, i['script'], re.S)
+        scripts+=p.group(1)
+
+    write_to_json(scripts, 'descriptions.json')
