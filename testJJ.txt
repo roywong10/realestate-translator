@@ -230,12 +230,12 @@ deep set			幽居一隅
   Second			第二	
 leafy street			綠蔭街道/綠蔭靜街	
 Spacious s/steel			寬敞不銹鋼	
-  Separate			獨立後院	
+  Separate			獨立的
   Pristine			質樸	
 plush carpet			長絨地毯	
 wooden staircase			木樓梯	
 sun-filled ambiance			陽光明媚	
-  Security			安保	
+  Security
 internal lift			內部電梯	
 own investigation			自行調查	
 queen size			超大	

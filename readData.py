@@ -41,12 +41,12 @@ while line:
 
     attribute = normalWord(attribute)
 
-    if attribute not in dict:
-        dict[attribute] = lineData[i:]
-    else:
-        for w in lineData[i:]:
-            if w not in dict[attribute]:
-                dict[attribute].append(w)
+    # if attribute not in dict:
+    dict[attribute] = lineData[i:]
+    # else:
+    #     for w in lineData[i:]:
+    #         if w not in dict[attribute]:
+    #             dict[attribute].append(w)
     line = file.readline()
 file.close()
 

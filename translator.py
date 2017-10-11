@@ -1,11 +1,13 @@
-import pickle 
+import pickle
 import re
 import sys
 import os
 import funcs
 import baidutrans
 import nltk
+import pymysql
 import json
+import pymssql
 from collections import  OrderedDict
 from operator import itemgetter
 
@@ -17,12 +19,19 @@ def build_paragraphs(lines, paragraphs = []):
             words = nltk.word_tokenize(sentence)
             if not words:
                 continue
-            # words[0] = words[0].lower()
+            words[0] = funcs.normalWord(words[0])
             tags = nltk.pos_tag(words)
             if not tags:
                 continue
             paragraphs[-1].append(tags)
     return paragraphs
+
+def print_paragraphs(paragraphs):
+    for par in paragraphs:
+        for sen in par:
+            for wor in sen:
+                print(wor[0]+"("+wor[1]+")", end=" ")
+        print("\n")
 
 def translate(paragraphs, delete_tags= [], unchange_tags=[], phraseNum = 3):
     # tranlate
@@ -108,61 +117,96 @@ def extract_phrase(paragraphs):
                 if s[i][-1] in adjs:
                     if s[i+1][-1] in nouns:
                         key = s[i][0]+" "+s[i+1][0]
-
+                        key = funcs.normalWord(key)
                         if key in JJ:
-                            JJ[key]+=1
+                            JJ[key][-1]+=1
                         else:
-                            JJ[key] = 1
+                            JJ[key] = [s[i][1], s[i+1][1], 1 ]
                 if s[i][-1] in nouns:
                     if s[i+1][-1] in nouns:
                         key = s[i][0]+" "+s[i+1][0]
-
+                        key = funcs.normalWord(key)
                         if key in NN:
-                            NN[key]+=1
+                            NN[key][-1]+=1
                         else:
-                            NN[key] = 1
+                            NN[key] =  [s[i][1], s[i+1][1], 1 ]
     return JJ, NN
 
 def write_extract(dict,dictName):
-    sortedDict = sorted(dict.items(), key=lambda item: item[1], reverse=True)
+    sortedDict = sorted(dict.items(), key=lambda item: item[1][2], reverse=True)
     with open(os.path.join("extracts", dictName+"_extract.txt"), "w", encoding='utf-8') as f:
         for i in sortedDict:
-            f.write(str(i[0]) + "\t " + str(i[1]) + "\n")
+            f.write(str(i[0]) + "\t " + str(i[1][0]) + "\t"+str(i[1][1]) + "\t" + str(i[1][2]) + "\t"+ str(i[1][-1])+"\n")
     f.close()
+
+def execute_sql_query(cur,sql):
+    cur.execute(sql)
+    return cur
 
 if __name__ == '__main__':
 
-    #############
+    #### define varibles
     phraseNum = 3
     pathToDict = sys.argv[1]
     # pathToEnglish = sys.argv[2]
-    pathToEnglish = 'eng2.txt'
-    delete_tags = ['CC', 'DT', 'IN', 'TO', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT']
-    delete_tags = ['CC', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT']
+    pathToEnglish = 'descriptions.json'
+    # delete_tags = ['CC', 'DT', 'IN', 'TO', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT']
+    # delete_tags = ['CC', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT']
+    delete_tags = ['RB']
     unchange_tags = ['NNP', 'NNPS']
-    ###############
+    #### define varibles end
 
-    # read dictionary
+    #### connect romote mysql
+    server = "ozhome-test-db.cwqcl73rsxql.ap-southeast-2.rds.amazonaws.com"
+    user = "ozhome_admin"
+    password = "admin_ozhome"
+    dbname = "ozhomecomau"
+    conn = pymssql.connect(host = server, user = user, password = password, database = dbname)
+    cur = conn.cursor()
+    #### connect remote mysql end
+
+    #### read dictionary
     with open(pathToDict, 'rb') as f:
         translateDict = pickle.load(f)
     f.close()
+    #### read dictionary end
 
-    # read english script
+    #### read english script
     with open(pathToEnglish, 'r', encoding='utf-8') as file:
         lines = file.readlines()
     file.close()
     paragraphs = build_paragraphs(lines)
+    # print_paragraphs(paragraphs)
+    #### read English script end
 
+    ########################################################
     #### test
+    # sql = "select top 3 Description FROM residential"
+    # result = execute_sql_query(cur, sql)
+    # for row in result:
+    #     print(row[0])
+
+
     # for para in paragraphs:
     #     print(para)
 
-    for ss in translate(paragraphs, delete_tags, unchange_tags, phraseNum):
-        print(ss)
+    # for ss in translate(paragraphs, delete_tags, unchange_tags, phraseNum):
+    #     print(ss)
 
-    # JJ, NN = extract_phrase(paragraphs)
-    # sortedDict = sorted(JJ.items(), key=lambda item:item[1], reverse=True)
-    # write_extract(JJ, 'JJ')
+    JJ, NN= extract_phrase(paragraphs)
+    count = 0
+    for key, value in JJ.items():
+        if value[2] >1:
+            try:
+                print(key, count)
+                count+=1
+                trans = baidutrans.en_to_zh(key)
+                value.append(trans['trans_result']['dst'])
+            except:
+                print("translate failed for:", key)
+                continue
+
+    write_extract(JJ, 'JJ')
     # write_extract(NN, 'NN')
 
 

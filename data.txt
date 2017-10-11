@@ -188,9 +188,9 @@ convenient location	便利位置	便捷位置	非常便捷	位置便利	位置�
 convenient position	便利位置	便捷位置	非常便捷	位置便利	位置便捷														
 House	美居																		
 family home	家庭美居																		
-light filled	采光																		
-light-filled	采光																		
-bright	采光																		
+light filled	采光的
+light-filled	采光的
+bright	采光好的
 perfect location	優越位置	上佳地段	完美地段	高尚地段	卓越地段	完美佳位	首選佳位												
 prime location	優越位置	上佳地段	完美地段	高尚地段	卓越地段	完美佳位	首選佳位												
 full brick	全砖																		
@@ -210,6 +210,7 @@ granny flat	祖母房
 deposit taken
 brand new	全新																		
 bathroom    卫生间
-and 和
-set 建立
+and
 abc 测试数据
+with
+set
