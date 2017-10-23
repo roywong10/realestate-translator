@@ -136,7 +136,10 @@ def write_extract(dict,dictName):
     sortedDict = sorted(dict.items(), key=lambda item: item[1][2], reverse=True)
     with open(os.path.join("extracts", dictName+"_extract.txt"), "w", encoding='utf-8') as f:
         for i in sortedDict:
-            f.write(str(i[0]) + "\t " + str(i[1][0]) + "\t"+str(i[1][1]) + "\t" + str(i[1][2]) + "\t"+ str(i[1][-1])+"\n")
+            if len(i[1])>3:
+                f.write(str(i[0]) + "\t " + str(i[1][0]) + "\t"+str(i[1][1]) + "\t" + str(i[1][2]) + "\t"+ str(i[1][-1])+"\n")
+            else:
+                f.write(str(i[0]) + "\t " + str(i[1][0]) + "\t" + str(i[1][1]) + "\t" + str(i[1][2]) + "\n")
     f.close()
 
 def execute_sql_query(cur,sql):
@@ -149,7 +152,7 @@ if __name__ == '__main__':
     phraseNum = 3
     pathToDict = sys.argv[1]
     # pathToEnglish = sys.argv[2]
-    pathToEnglish = 'descriptions.json'
+    pathToEnglish = 'eng2.txt'
     # delete_tags = ['CC', 'DT', 'IN', 'TO', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT']
     # delete_tags = ['CC', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT']
     delete_tags = ['RB']
@@ -176,6 +179,7 @@ if __name__ == '__main__':
         lines = file.readlines()
     file.close()
     paragraphs = build_paragraphs(lines)
+
     # print_paragraphs(paragraphs)
     #### read English script end
 
@@ -190,23 +194,29 @@ if __name__ == '__main__':
     # for para in paragraphs:
     #     print(para)
 
-    # for ss in translate(paragraphs, delete_tags, unchange_tags, phraseNum):
-    #     print(ss)
+    for ss in translate(paragraphs, delete_tags, unchange_tags, phraseNum):
+        print(ss)
 
-    JJ, NN= extract_phrase(paragraphs)
-    count = 0
-    for key, value in JJ.items():
-        if value[2] >1:
-            try:
-                print(key, count)
-                count+=1
-                trans = baidutrans.en_to_zh(key)
-                value.append(trans['trans_result']['dst'])
-            except:
-                print("translate failed for:", key)
-                continue
+    # JJ, NN= extract_phrase(paragraphs)
+    # with open("NN.dict", "rb") as f:
+    #     NN = pickle.load(f)
+    # f.close()
 
-    write_extract(JJ, 'JJ')
+    # count = 0
+    # for key, value in NN.items():
+    #     if value[2] >1 and len(value) <=3:
+    #         try:
+    #             print(key, count)
+    #             count+=1
+    #             trans = baidutrans.en_to_zh(key)
+    #             value.append(trans['trans_result'][0]['dst'])
+    #         except:
+    #             print("translate failed for:", key)
+    #             continue
+    # with open("NN.dict", 'wb') as f:
+    #     pickle.dump(NN,f)
+    # f.close()
+    # # write_extract(JJ, 'JJ')
     # write_extract(NN, 'NN')
 
 

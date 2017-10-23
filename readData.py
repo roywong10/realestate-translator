@@ -25,6 +25,7 @@ dictLen = len(dict)
 file = open(pathToData, encoding="utf8")
 line = file.readline()
 
+count = 0
 while line:
     
     lineData = nltk.word_tokenize(line)
@@ -48,12 +49,13 @@ while line:
     #         if w not in dict[attribute]:
     #             dict[attribute].append(w)
     line = file.readline()
+    print(count)
+    count+=1
 file.close()
 
 with open(pathToDict, 'wb') as f2:
     pickle.dump(dict, f2)
 f2.close()
 
-print(dict)
 print( "新增{:}个字典条目, 共{:}条".format(len(dict) - dictLen, len(dict)))
 
