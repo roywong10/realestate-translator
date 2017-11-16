@@ -11,6 +11,24 @@ def normalWord(word):
 
 def isEnglish(src):
     for d in src:
-        if ord(d)>122:
+        if ord(d)>126:
             return False
     return True
+
+def correctStart(word):
+    a = ["-", "*", "+", "=", "/", "^", "#", "@", "~" ,"•"]
+    if word[0] in a and len(word) == 1:
+        return False
+    result = word
+    for i in range(len(word)):
+        if word[i] in a:
+            result = word[i+1:]
+        else:
+            return normalWord(result)
+    return False
+
+
+
+
+
+
