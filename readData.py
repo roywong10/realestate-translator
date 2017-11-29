@@ -69,7 +69,9 @@ if __name__ == '__main__':
     reader.buildNewDict()
     reader2 = readData('DataSingleWord.xlsx', pathToDict)
     reader2.buildDict()
-    print(reader2.dict)
+    reader2 = readData('DataReplace.xlsx', pathToDict)
+    reader2.buildDict()
+
 
 
 

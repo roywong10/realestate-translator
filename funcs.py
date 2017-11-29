@@ -16,7 +16,7 @@ def isEnglish(src):
     return True
 
 def correctStart(word):
-    a = ["-", "*", "+", "=", "/", "^", "#", "@", "~" ,"•"]
+    a = ["-", "*", "+", "=", "/", "^", "#", "@", "~" ,"•","· ", "?"]
     if word[0] in a and len(word) == 1:
         return False
     result = word
@@ -27,6 +27,8 @@ def correctStart(word):
             return normalWord(result)
     return False
 
+def script_pre(script ):
+    return script.replace("/", " ")
 
 
 

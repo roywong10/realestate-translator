@@ -79,5 +79,6 @@ def zh_to_en(src):#中译英
 #             target = zh_to_en(word)
 #             print(target)
 
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    target = en_to_zh("in a 保安对讲系统 building with 保安 直通 to its lock up garage .   ")
+    print(target)
