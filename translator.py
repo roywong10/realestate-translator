@@ -342,7 +342,7 @@ if __name__ == '__main__':
     phraseNum = 4
     pathToDict = sys.argv[1]
     # pathToEnglish = sys.argv[2]
-    pathToEnglish = 'eng14.txt'
+    pathToEnglish = 'eng25.txt'
     # delete_tags = ['CC', 'DT', 'IN', 'TO', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT']
     # delete_tags = ['CC', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT']
     unchange_tags = ['NNP', 'NNPS']
