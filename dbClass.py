@@ -5,16 +5,16 @@ class db:
     with open('sqlini.json', 'r') as f:
         sqlini = json.load(f)
     f.close()
-    host = sqlini['host2']
-    password = sqlini['password2']
-    user = sqlini['user2']
-    dbname = sqlini['dbname2']
+    host = sqlini['host']
+    password = sqlini['password']
+    user = sqlini['user']
+    dbname = sqlini['dbname']
     charset = 'utf8'
     database = None
     cursor = None
 
-    def initial(self):
-        db.database = pymssql.connect(host=db.host, password=db.password, user=db.user, db=db.dbname, charset=db.charset)
+    def __init__(self):
+        db.database = pymssql.connect(host=db.host, password=db.password, user=db.user, database=db.dbname, charset=db.charset)
         db.cursor = db.database.cursor()
 
     def commit(self):

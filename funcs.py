@@ -1,5 +1,4 @@
-import sys
-import pickle
+import re
 
 def normalWord(word):
     # if re.search('s$',word):
@@ -34,6 +33,28 @@ def correctStart(word):
 
 def script_pre(script ):
     return script.replace("/", " ")
+
+
+def check_contain_chinese(str):
+    count = 0
+    for ch in str:
+        if u'\u4e00' <= ch <= u'\u9fff':
+            count+=1
+    if count:
+        return count
+    return False
+
+def mssql_query(query):
+    query = re.sub('(\n){2,5}', '\n', query)
+    return query
+
+def format_correct(str):
+    return re.sub('\'', '"', str)
+
+if __name__ == "__main__":
+    print(check_contain_chinese('中国天天hasdh'))
+    print(check_contain_chinese('xxx'))
+    print(check_contain_chinese('xx中国'))
 
 
 

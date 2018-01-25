@@ -340,9 +340,8 @@ if __name__ == '__main__':
 
     #### define varibles
     phraseNum = 4
-    pathToDict = sys.argv[1]
     # pathToEnglish = sys.argv[2]
-    pathToEnglish = 'eng25.txt'
+    pathToEnglish = 'english scripts/eng2.txt'
     # delete_tags = ['CC', 'DT', 'IN', 'TO', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT']
     # delete_tags = ['CC', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT']
     unchange_tags = ['NNP', 'NNPS']
@@ -358,7 +357,7 @@ if __name__ == '__main__':
     #### connect remote mysql end
 
     #### read dictionary
-    with open(pathToDict, 'rb') as f:
+    with open('dict.dat', 'rb') as f:
         translateDict = pickle.load(f)
     f.close()
     #### read dictionary end
