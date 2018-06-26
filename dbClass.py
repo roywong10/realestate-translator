@@ -2,7 +2,7 @@ import pymssql
 import json
 
 class db:
-    with open('sqlini.json', 'r') as f:
+    with open('config.json', 'r') as f:
         sqlini = json.load(f)
     f.close()
     host = sqlini['host']
