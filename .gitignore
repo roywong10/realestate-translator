@@ -20,3 +20,4 @@ venv/**
 sqlini.json
 config.json
 **/config.json
+tmp/**
