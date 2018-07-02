@@ -1,11 +1,11 @@
 from openpyxl import load_workbook
 from openpyxl.styles import Alignment
 from lingmoAPI import lingmoAPI
-from funcs import str_join, regx_replace_keywords, build_dict_from_xlsx
+from funcs import str_join, regx_replace_keywords, build_dict_from_xlsx, tokenize_replace_keywords
 import os
 
 
-def translator_xlsx(dest_file, english_keywords_replacement_dict = None):
+def translator_xlsx(dest_file, english_keywords_replacement_dict=None, chinese_keywords_replacement_dict=None):
 
     lw = load_workbook(filename=dest_file)
     ws = lw.active
@@ -18,9 +18,14 @@ def translator_xlsx(dest_file, english_keywords_replacement_dict = None):
         value = ws[str_join('B', index)].value
         if value:
             if english_keywords_replacement_dict:
-                value = regx_replace_keywords(value, english_keywords_replacement_dict)
+                value = tokenize_replace_keywords(value, english_keywords_replacement_dict)
             translation = api.en_to_ch(value)
-            ws[str_join('E', index)] = translation
+            if chinese_keywords_replacement_dict:
+                treated_translation = regx_replace_keywords(translation, chinese_keywords_replacement_dict)
+                ws[str_join('E', index)] = treated_translation
+            else:
+                ws[str_join('E', index)] = translation
+
             ws[str_join('F', index)] = value
             ws[str_join('F', index)].alignment = Alignment(wrapText=True)
             ws[str_join('E', index)].alignment = Alignment(wrapText=True)
@@ -33,8 +38,9 @@ def translator_xlsx(dest_file, english_keywords_replacement_dict = None):
 
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-keywords_dict = build_dict_from_xlsx(os.path.join(ROOT_DIR, 'tmp\SampleEnglishKeyword2.xlsx'))
-translator_xlsx(os.path.join(ROOT_DIR,'tmp', '5.27.xlsx'), english_keywords_replacement_dict=keywords_dict)
+english_keywords_dict = build_dict_from_xlsx(os.path.join(ROOT_DIR, 'tmp/SampleEnglishKeyword-20180701.xlsx'), 'English')
+chinese_keywords_dict = build_dict_from_xlsx(os.path.join(ROOT_DIR, 'tmp/SampleEnglishKeyword-20180701.xlsx'), 'Chinese')
+translator_xlsx(os.path.join(ROOT_DIR,'tmp', '5.27.xlsx'), english_keywords_replacement_dict=english_keywords_dict, chinese_keywords_replacement_dict=chinese_keywords_dict)
 
 
 
