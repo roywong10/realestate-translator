@@ -2,6 +2,8 @@ import requests
 import time
 import os
 import json
+import sys
+from funcs import tokenize_replace_keywords, regx_replace_keywords, build_dict_from_xlsx
 
 
 class lingmoAPI:
@@ -76,12 +78,32 @@ class lingmoAPI:
     def show_token(self):
         print(self.Token)
 
+def api_translate_from_EN_to_CH(text=None, english_keywords_replacement_dict=None, chinese_keywords_replacement_dict=None):
+    api = lingmoAPI()
+    if not text or len(text) < 1:
+        return ""
+    if english_keywords_replacement_dict:
+        value = tokenize_replace_keywords(text, english_keywords_replacement_dict)
+
+    translation = api.en_to_ch(value)
+
+    if chinese_keywords_replacement_dict:
+        treated_translation = regx_replace_keywords(translation, chinese_keywords_replacement_dict)
+
+
+
 
 if __name__ == '__main__':
-    api = lingmoAPI()
-    api.show_token()
-    print(api.token_is_valid())
-    print(api.en_to_ch('today is a good day'))
+    ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+    print(sys.argv)
+    if len(sys.argv) <= 1:
+        sys.exit('No text provided')
+
+    text = sys.argv[1]
+    english_keywords_dict = build_dict_from_xlsx(os.path.join(ROOT_DIR, 'tmp/SampleEnglishKeyword-20180703.xlsx'), 'English')
+    chinese_keywords_dict = build_dict_from_xlsx(os.path.join(ROOT_DIR, 'tmp/SampleEnglishKeyword-20180703.xlsx'), 'Chinese')
+    print(api_translate_from_EN_to_CH(text, english_keywords_dict, chinese_keywords_dict))
+
 
 
 

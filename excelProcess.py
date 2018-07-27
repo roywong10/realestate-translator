@@ -37,10 +37,12 @@ def translator_xlsx(dest_file, english_keywords_replacement_dict=None, chinese_k
     lw.save(dest_file)
 
 
+
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-english_keywords_dict = build_dict_from_xlsx(os.path.join(ROOT_DIR, 'tmp/SampleEnglishKeyword-20180701.xlsx'), 'English')
-chinese_keywords_dict = build_dict_from_xlsx(os.path.join(ROOT_DIR, 'tmp/SampleEnglishKeyword-20180701.xlsx'), 'Chinese')
-translator_xlsx(os.path.join(ROOT_DIR,'tmp', '5.27.xlsx'), english_keywords_replacement_dict=english_keywords_dict, chinese_keywords_replacement_dict=chinese_keywords_dict)
+english_keywords_dict = build_dict_from_xlsx(os.path.join(ROOT_DIR, 'tmp/SampleEnglishKeyword-20180703.xlsx'), 'English')
+chinese_keywords_dict = build_dict_from_xlsx(os.path.join(ROOT_DIR, 'tmp/SampleEnglishKeyword-20180703.xlsx'), 'Chinese')
+# print(chinese_keywords_dict)
+translator_xlsx(os.path.join(ROOT_DIR,'tmp', '5.26.xlsx'), english_keywords_replacement_dict=english_keywords_dict, chinese_keywords_replacement_dict=chinese_keywords_dict)
 
 
 

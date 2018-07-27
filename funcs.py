@@ -77,7 +77,10 @@ def build_dict_from_xlsx(dest_file, sheet_name):
         key = normalWord(ws[str_join('A', index)].value)
         value = ws[str_join('B', index)].value
         if key:
-            key_words_dict[key] = value
+            if value:
+                key_words_dict[key] = value
+            else:
+                key_words_dict[key] = ""
 
         index += 1
 
